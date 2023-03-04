@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif 
+  }
+
+  body {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Atlantic_near_Faroe_Islands.jpg/640px-Atlantic_near_Faroe_Islands.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* responsividade */
+    background-attachment: fixed; /* ocupa toda a tela */
+  }
+
+  .container{
+    display: flex; /* utilizar o Flexbox */
+    justify-content: center;  /* coloca todo o conteúdo do card no centro */
+    width: 100%; /*cobre 100% da área que ele ocupar*/
+    margin-top: 100px; /* margem top fixa para qualquer tipo de tela*/
+  }
+
+  /*Configurar o Card*/
+
+  .card{
+    background-color: #ffffff90; /*define a cor(#ffffff) e a opacidade (0-100) do card (poderia ser #ffffff90)*/
+    padding: 30px; /* espaçamento */
+    border-radius: 4%; /* arredonda as laterai do card */
+    box-shadow: 3px 3px 0px 0px #00000060; /*  sombra no card Direita, baixo, esquerda, topo opacidade*/
+  }
+
+  /* Configurar o Título*/
+
+  h1{
+    text-align: center; /* Centralizar o texto*/
+    margin-bottom: 20px; /* Margem inferior - afastamento dos elementos abaixo*/
+    color: #272263; /* Define a cor do texto - usar colorzilla*/
+  }
+
+  .label-float input{
+    width: 100%; /* ocupar todo o espaço*/
+    padding: 5px 5px; /* padding fixo acima e abaixo*/
+    display: inline-block; /* fixar em uma linha nada mais ocupa a linha além do input*/
+    border: 0; /* */
+    border-bottom: 2px solid #272263; /* Borda inferior da mesma cor do h1*/
+    background-color: transparent; /* Sem background*/
+    outline: none; /* retirar o outline do input (quando clica não abre a caixa para edição)*/
+    min-width: 180px; /* mínimo de largura*/
+    font-size: 16px; /* tamanho fixo da fonte do INPUT*/
+    transition: all .3s ease-out; /* Cria uma transição de 0,3 seg*/
+    border-radius: 0; /* Retirar o border-radius*/ 
+  }
+
+  .label-float {
+    position: relative; /* */
+    padding-top: 13px; /* */
+    margin-top: 5%; /* */
+    margin-bottom: 5%; /* */
+  }
+
+  .label-float input:focus {
+    border-bottom: 2px solid #4038a0; /* Quando tiver o foco (clicar nele) vai mudar d cor*/
+  }
+
+  .label-float label {
+    color: #272263; /*a LABEL vai ter cor igual à de todos*/
+    pointer-events: none; /* quando o mouse for colocado sobre a label*/
+    position: absolute; /* smpre vai ficar por cima - mas dentro do espaço relativo*/
+    top: 0; /* retira a altura*/
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+  }
+
+  .label-float input:focus + label {
+    font-size: 13px; /* quando entrar no INPUT a LABEL terá 13 px*/
+    margin-top: 0;
+    color: #4038a0; /* a mesma cor do focus do input*/
+  }
+
+  button {
+    background-color: transparent;  /* Cor de fundo transparente */
+    border-color: #272263; /* cor padrão de uso nesta app */
+    color: #272263; /* cor da paleta (texto) */
+    padding: 7px; /* espaçamento interno (dentro do elemento)*/
+    font-weight: bold; /* largura do texto do botão */
+    font-size: 12pt; /* fonte um pouco maior */
+    margin-top: 20px; /* espaçamento superior (fora do elemento) */
+    border-radius: 4px; /* deixa o botão arredondado */
+    cursor: pointer; /* quando o mouse passar sobre o elemento vira uma mão */
+    outline: none; /* quando apertar o botão fará apenas um efeito de sombra ao invés do efeito normal */
+  }
+
+/* Quando o mouse passar sobre o botão */
+  button:hover {
+    background-color: #272263; /* quando passar o mouse muda a cor do botão */
+    color: #fff; /* muda a cor do texto para branco */
+    transition: all .4s ease-out; /* atribui uma transição de 0,4s na mudança da cor */
+  }
+
+  .justify-center {
+    display: flex; /*  */
+    justify-content: center; /*  */
+  }
+
+  /*  */
+  hr {
+    margin-top: 10%; /* espaçamento no topo da linha */
+    margin-bottom: 10%; /* Espaçamento abaixo */
+    width: 80%;  /* comprimento da linha */
+  }
+
+  p {
+    color: #272263; /* ajusta cor do texto */
+    font-size: 14pt; /* altera o tamanho da fonte */
+    text-align: center; /* alinha o texto ao centro */
+  }
+
+  a {
+    color: #7a3077; /* uma cor para evidenciar que é um link */
+    font-weight: bold; /* colocar o link em negrito */
+    text-decoration: none; /* retira o sublinhado do link */
+  }
+
+/* quando o mouse passar sobre um link */
+  a:hover {
+    color: #272263; /* muda a cor para substituir o text decoration */
+    transition: all .4s ease-out;
+  }
