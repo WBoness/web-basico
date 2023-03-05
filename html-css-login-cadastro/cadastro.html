@@ -1,3 +1,9 @@
+<!--
+  Recurso: https://youtu.be/VUd2SA9oB2I
+  
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,32 +11,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/estilo.css" rel="stylesheet">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- link para o font awesome para pegar icones -->
+  <!-- <script type="text/javascript" src="js/script.js"> /*chamada arquivo javascript */ </script> -->
+  <title>Aplicação completa com HTML, CSS e JS - Tela de Cadastro de Usuário</title>
 </head>
 <body>
   <div class= "container"> <!-- define um container para apágina -->
-    <div class= "card"> <!-- insere um car no container -->
+    <div class= "card2"> <!-- insere um car no container -->
       
       <h1>Cadastrar Usuário</h1> <!-- título do card -->
 
       <div class= "label-float"> <!-- cria uma classe label float para o input e o label -->
-        <input type="text" id="nome" placeholder=""> <!-- INPUT para o nome com placeholder vazio -->
+        <input type="text" id="nome" placeholder="" required> <!-- INPUT para o nome com placeholder vazio - Campo Obrigatório -->
         <label for="usuario">Nome</label> <!-- rótulo para o nome do usuário -->
       </div>
 
       <div class= "label-float"> <!-- cria uma classe label float para o input e o label -->
-          <input type="text" id="usuario" placeholder=""> <!-- INPUT para o usuário com placeholder vazio -->
+          <input type="text" id="usuario" placeholder="" required> <!-- INPUT para o usuário com placeholder vazio - Campo obrigatório -->
           <label for="usuario">Usuário</label> <!-- rótulo para o usuário -->
       </div>
-      
+
+      <!--
+        Para utilizar o Javascript nos dois ícones (senha e confirmasenha), 
+          - tem que criar um id, pois eles têm que ser selecionados no javascript separadamente.
+          - O id substituirá o nome da classe no btn
+      -->      
       <div class= "label-float">
-          <input type="password" id="senha" placeholder=""> <!-- input do tipo password -->
+          <input type="password" id="senha" placeholder="" required> <!-- input do tipo password - Campo obrigatório -->
           <label for="senha">Senha</label> <!-- rótulo para a senha -->
+          <i id='ver-senha' class="fa fa-eye" aria-hidden="true"></i> <!-- Coloca o icone do olho. Depende do link no head. Tem que config a classe no css -->
+          <script src="js/eyes.js"></script> <!-- Colocado aqui porque se for declarado no head o button retornará null -->
       </div>
-      
+
       <div class= "label-float">
-        <input type="password" id="confirmarsenha" placeholder=""> <!-- input do tipo password -->
+        <input type="password" id="confirmarsenha" placeholder="" required> <!-- input do tipo password - Campo obrigatório -->
         <label for="confirmarsenha">Confirmar Senha</label> <!-- rótulo para a confirmar senha -->
+        <i id='ver-confirma' class="fa fa-eye" aria-hidden="true"></i> <!-- Coloca o icone do olho. Depende do link no head. Tem que config a classe no css -->
+        <script src="js/eyes.js"></script> <!-- Colocado aqui porque se for declarado no head o button retornará null -->
       </div>
       
       <div class= "justify-center"> <!-- classe justify-center permitirá alinhar botão centro -->
@@ -42,8 +59,8 @@
       </div>
       
       <div >
-        <p>Não tem uma conta? 
-          <a href="">Cadastre-se</a>
+        <p>Já possuo cadastrado!
+          <a href="index.html">Login no sistema</a>
         </p>
 
       </div>

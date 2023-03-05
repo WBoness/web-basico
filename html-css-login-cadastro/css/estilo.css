@@ -1,3 +1,9 @@
+/*
+Recurso: https://youtu.be/VUd2SA9oB2I
+*/
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +31,16 @@
     padding: 30px; /* espaçamento */
     border-radius: 4%; /* arredonda as laterai do card */
     box-shadow: 3px 3px 0px 0px #00000060; /*  sombra no card Direita, baixo, esquerda, topo opacidade*/
+  }
+
+  .card2{
+    background-color: #ffffff90; /*define a cor(#ffffff) e a opacidade (0-100) do card (poderia ser #ffffff90)*/
+    padding: 30px; /* espaçamento */
+    border-radius: 4%; /* arredonda as laterai do card */
+    box-shadow: 3px 3px 0px 0px #00000060; /*  sombra no card Direita, baixo, esquerda, topo opacidade*/
+    min-width: 290px;
+    max-width: 400px;
+    width: 100%;
   }
 
   /* Configurar o Título*/
@@ -70,10 +86,19 @@
     transition: all .3s ease-out;
   }
 
-  .label-float input:focus + label {
+  .label-float input:focus + label,
+  .label-float input:valid + label { /* faz com que o label não sobreponha o texto digitado ao sair do foco */
     font-size: 13px; /* quando entrar no INPUT a LABEL terá 13 px*/
     margin-top: 0;
     color: #4038a0; /* a mesma cor do focus do input*/
+  }
+
+
+  .label-float {
+    position: relative; /* */
+    padding-top: 13px; /* */
+    margin-top: 5%; /* */
+    margin-bottom: 5%; /* */
   }
 
   button {
@@ -123,5 +148,17 @@
 /* quando o mouse passar sobre um link */
   a:hover {
     color: #272263; /* muda a cor para substituir o text decoration */
+    transition: all .4s ease-out;
+  }
+
+  .fa-eye {
+    position: absolute;
+    top: 13px; /*tem que ser o mesmo da label quando não está no focus: 13px*/
+    right: 10px;
+    cursor: pointer; /*quando passar o mouse, o cursor muda para pointer*/
+    color: #272263;/* Trocar a cor para deixar no padrão */
+  }
+  .fa-eye: hover {
+    color: #7a33077; /* muda a cor para substituir o text decoration */
     transition: all .4s ease-out;
   }
