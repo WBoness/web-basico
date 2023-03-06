@@ -1,0 +1,56 @@
+/*
+Função Cadastrar Usuário
+Há duas maneiras de fazer: 
+    - através do addEventListener (código mais limpo) - ESTE ARQUIVO
+    - através da opção onClick do elemento botão no HTML (polui código)
+
+Criar variáveis para chamar cada campo (nome, usuário,..)
+Criar a validação
+    - quando digitar já vai verificando o conteúdo antes de apertar o botão cadastrar
+
+*/
+
+    function cadastrarUsuario() {
+
+    /*  Área de Variáveis   */
+
+    window.onload = function() {
+        let nome = document.querySelector('#nome') /* Tem que ser o ID do Input, poi o objetivo é validar o input */
+        let labelNome = document.querySelector('#labelNome') /* Tem que ser o ID da label, poi o objetivo é validar a label */
+
+        let usuario = document.querySelector('#usuario')
+        let labelUsuario = document.querySelector('#labelUsuario')
+
+        let senha = document.querySelector('#senha')
+        let labelSenha = document.querySelector('#labelSenha')
+
+        let confirmarSenha = document.querySelector('#confirmarsenha')
+        let labelConfirmarSenha = document.querySelector('#labelConfirmarSenha')
+
+        /*  Área de utilidades   */
+
+        /*  Área de Validações   */
+
+        nome.addEventListener("keyup" , ()=>{ /* Adiciona um evento ao botão, no caso, um evento de clique, criando uma arrow function */
+            /*let InputSenha = document.querySelector('#senha') /* variável recebe o valor do campo password de ID 'senha' */            
+            if (nome.ariaValueNow.length <= 2 ){
+                /*labelNome.setAttribute ("color", "text") /* muda o atribito de password para text (visível) */
+                alert("nome pequeno")
+            } else {
+                /*nputSenha.setAttribute ("type", "password") /* muda de text para password (invisível) */
+                alert ("bom nome")
+            }
+        }
+        )
+
+        let btnCadastrar = document.querySelector('#btnCadastrar')
+        btnCadastrar.addEventListener("click" , ()=>{ /* Adiciona um evento ao botão, no caso, um evento de clique, criando uma arrow function */
+            alert('Botão clicado!')
+            }
+        )
+
+
+
+    
+    }
+}

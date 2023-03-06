@@ -1,0 +1,88 @@
+<!--
+  Recurso: https://youtu.be/VUd2SA9oB2I
+  
+  Objetivo: colocar funcionalidades na tela de cadastro
+
+  Alterações: 
+      01 - Colocar ID em cada Label (na hora de validar o campo a Label recebo o que ele deve ser!)
+          - o padrão utilizado será id="labelCampo" (ex. labelNome, labelSenha...)
+      02 - Inserir um evento de clique no botão cadastrar
+          - quando clicar, chama a função cadastrar (javascript)
+          - Ir para o javascript construir a função
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="css/estilo.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- link para o font awesome para pegar icones -->
+  
+  <!-- Declaração de scripts  -->
+  <!--<script src="js/eyes.js"></script> -->
+  <script src="js/cadastrarUsuario"></script> <!-- Carrega o javascript do botão Cadastrar -->
+  
+  <title>Aplicação completa com HTML, CSS e JS - Tela de Cadastro de Usuário</title>
+</head>
+<body>
+  <div class= "container"> <!-- define um container para apágina -->
+    <div class= "card2"> <!-- insere um car no container -->
+      
+      <h1>Cadastrar Usuário</h1> <!-- título do card -->
+
+      <div class= "label-float"> <!-- cria uma classe label float para o input e o label -->
+        <input type="text" id="nome" placeholder="" required> <!-- INPUT para o nome com placeholder vazio - Campo Obrigatório -->
+        <label id="labelNome" for="nome">Nome</label> <!-- rótulo para o nome do usuário -->
+      </div>
+
+      <div class= "label-float"> <!-- cria uma classe label float para o input e o label -->
+          <input type="text" id="usuario" placeholder="" required> <!-- INPUT para o usuário com placeholder vazio - Campo obrigatório -->
+          <label id="labelUsuario" for="usuario">Usuário</label> <!-- rótulo para o usuário -->
+      </div>
+
+      <!--
+        Para utilizar o Javascript nos dois ícones (senha e confirmasenha), 
+          - tem que criar um id, pois eles têm que ser selecionados no javascript separadamente.
+          - O id substituirá o nome da classe no btn
+      -->      
+      <div class= "label-float">
+          <input type="password" id="senha" placeholder="" required> <!-- input do tipo password - Campo obrigatório -->
+          <label id="labelSenha" for="senha">Senha</label> <!-- rótulo para a senha -->
+          <i id='ver-senha' class="fa fa-eye" aria-hidden="true"></i> <!-- Coloca o icone do olho. Depende do link no head. Tem que config a classe no css -->
+          <!--<script src="js/eyes.js"></script> <!-- Colocado aqui porque se for declarado no head o button retornará null 
+                                                      Situação resolvida com a função window.onload = function() {-->
+      </div>
+
+      <div class= "label-float">
+        <input type="password" id="confirmarsenha" placeholder="" required> <!-- input do tipo password - Campo obrigatório -->
+        <label id="labelConfirmarSenha" for="confirmarsenha">Confirmar Senha</label> <!-- rótulo para a confirmar senha -->
+        <i id='ver-confirma' class="fa fa-eye" aria-hidden="true"></i> <!-- Coloca o icone do olho. Depende do link no head. Tem que config a classe no css -->
+        <!--<script src="js/eyes.js"></script> <!-- Colocado aqui porque se for declarado no head o button retornará null 
+                                                      Situação resolvida com a função window.onload = function() {-->
+      </div>
+      
+      <div class= "justify-center"> <!-- classe justify-center permitirá alinhar botão centro -->
+        <button onclick="cadastrarUsuario()" >Cadastrar</button> <!-- Criação do botão com rótulo "Cadastrar" -->
+        <!--<button id="btnCadastrar" >Cadastrar</button> <!-- Criação do botão com rótulo "Cadastrar" -->
+      </div>
+      
+      <div class="justify-center">
+        <hr> <!-- coloca uma linha separadora -->
+      </div>
+      
+      <div >
+        <p>Já possuo cadastrado!
+          <a href="index.html">Login no sistema</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

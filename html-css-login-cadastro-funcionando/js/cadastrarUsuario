@@ -1,0 +1,176 @@
+/*
+    Função Cadastrar Usuário
+    Há duas maneiras de fazer: 
+        - através do addEventListener (código mais limpo)
+        - através da opção onClick do elemento botão no HTML (polui código)
+
+    Criar variáveis para chamar cada campo (nome, usuário,..)
+    Criar a validação
+        - quando digitar já vai verificando o conteúdo antes de apertar o botão cadastrar
+    Os eventos devem ficar dentro da window.onload = function()
+    As funções devem ficar fora da window.onload = function()
+    Tomar cuidado com o escopo das variáveis
+
+
+*/
+           
+
+        
+window.onload = function() {  /* Função evita que javascript seja carregado antes do DOM */
+
+    /*  Área de Variáveis   */
+    let nome = document.querySelector('#nome') /* Tem que ser o ID do Input, poi o objetivo é validar o input */
+    let labelNome = document.querySelector('#labelNome') /* Tem que ser o ID da label, poi o objetivo é validar a label */
+    validNome =  false
+    if (validNome == false) {
+        console.log('O valor validNome é: ' + validNome);
+    }
+    let usuario = document.querySelector('#usuario')
+    let labelUsuario = document.querySelector('#labelUsuario')
+    validUsuario = false 
+
+    let senha = document.querySelector('#senha')
+    let labelSenha = document.querySelector('#labelSenha')
+    validSenha = false 
+
+    let confirmarSenha = document.querySelector('#confirmarsenha')
+    let labelConfirmarSenha = document.querySelector('#labelConfirmarSenha')
+    validConfirmarSenha = false
+
+
+
+    /*  Área de eventos   */
+
+        /* Scripts para visualizar / ocultar senha na tela de cadastro (senha e ConfirmaSenha) 
+
+            - Recurso: https://youtu.be/VUd2SA9oB2I
+            criar no HTML um id para cada icone dos INPUTs
+            - criar um id para cada btn da página (btnversenha e btnverconfirma) 
+            - Criar uma variável para cada armazenar o vallor do campo (InputVerSenha e InputConfirmSenha)
+            - Este id será colocado como valor de entrada do btn
+            - */
+
+            
+            let btnversenha = document.querySelector ("#ver-senha")  /* Cria uma variável (BTN) e atribui a ele O ID do icone */
+
+            btnversenha.addEventListener("click" , ()=>{ /* Adiciona um evento ao botão, no caso, um evento de clique, criando uma arrow 
+                                                            function */
+                let InputVerSenha = document.querySelector('#senha') /* variável recebe o valor do campo password de ID DO ICONE */
+                if (InputVerSenha.getAttribute("type") == "password"){
+                    InputVerSenha.setAttribute ("type", "text") /* muda o atribito de password para text (visível) */
+                    } else {
+                        InputVerSenha.setAttribute ("type", "password") /* muda de text para password (invisível) */
+                    }
+            }
+            )
+            
+            let btnverconfirma = document.querySelector ("#ver-confirma")  /* Cria uma variável (btnverconfirma) e atribui a ele a classe 
+                                                                            do icone */
+                    
+                btnverconfirma.addEventListener("click" , ()=>{ /* Adiciona um evento ao botão, no caso, um evento de clique, criando uma 
+                                                            arrow function */
+                let InputConfirmSenha = document.querySelector('#confirmarsenha') /* variável recebe o valor do campo password de ID DO ICONE */
+                if (InputConfirmSenha.getAttribute("type") == "password"){
+                    InputConfirmSenha.setAttribute ("type", "text") /* muda o atribito de password para text (visível) */
+                    } else {
+                        InputConfirmSenha.setAttribute ("type", "password") /* muda de text para password (invisível) */
+                    }
+            }
+            ) 
+
+    /* VALIDAÇÃO DO CAMPO NOME */
+   
+        nome.addEventListener ('keyup', ()=>{   /* Evento em tempo de digitação - Após retirar o dedo do teclado */
+            if(nome.value.length <=2 ){     /* Verifica se o nome digitado tem menos de tês caracteres */
+                labelNome.setAttribute("style", "color:red")  /* Altera o atributo de cor do Label Nome para vermelho
+                                                                 se for menor que três caracteres */
+                labelNome.innerHTML ="<strong> Nome (Mínimo com três letras!) </strong>" /* muda o label Nome */
+                nome.setAttribute ("style", "border-color:red") /* coloca a borda vermelha enquanto <3 caracteres */
+                validNome = false
+                console.log('O valor validNome é: ' + validNome);
+            }else {
+                labelNome.setAttribute("style", "color:green")  /* Altera o atributo de cor do Label Nome para verde
+                                                                    se for MAIOR que três caracteres */
+                labelNome.innerHTML ="Nome" /* muda o label Nome */
+                nome.setAttribute ("style", "border-color:green") /* coloca a borda verde se >= 3 caracteres */
+                validNome = true
+                console.log('O valor validNome é: ' + validNome);
+            }
+        })
+    
+
+    /* VALIDAÇÃO DO CAMPO USUÁRIO */
+   
+        usuario.addEventListener ('keyup', ()=>{   /* Evento em tempo de digitação - Após retirar o dedo do teclado */
+        if(usuario.value.length <=5 ){     /* Verifica se o nome digitado tem menos de tês caracteres */
+            labelUsuario.setAttribute("style", "color:red")  /* Altera o atributo de cor do Label Nome para vermelho
+                                                            se for menor que três caracteres */
+            labelUsuario.innerHTML ="<strong> Usuário (Mínimo com seis letras!) </strong>" /* muda o label Nome */
+            usuario.setAttribute ("style", "border-color:red") /* coloca a borda vermelha enquanto <3 caracteres */
+            validUsuario = false
+        }else {
+            labelUsuario.setAttribute("style", "color:green")  /* Altera o atributo de cor do Label Nome para verde
+                                                                se for MAIOR que três caracteres */
+            labelUsuario.innerHTML ="Usuário" /* muda o label Nome */
+            usuario.setAttribute ("style", "border-color:green") /* coloca a borda verde se >= 3 caracteres */
+            validUsuario = true
+        }
+        })
+
+    /* VALIDAÇÃO DO CAMPO SENHA */
+        
+        senha.addEventListener ('keyup', ()=>{   /* Evento em tempo de digitação - Após retirar o dedo do teclado */
+        if(senha.value.length <=5 ){     /* Verifica se o nome digitado tem menos de tês caracteres */
+            labelSenha.setAttribute("style", "color:red")  /* Altera o atributo de cor do Label Nome para vermelho
+                                                            se for menor que três caracteres */
+            labelSenha.innerHTML ="<strong> Senha (Mínimo com seis letras!) </strong>" /* muda o label Nome */
+            senha.setAttribute ("style", "border-color:red") /* coloca a borda vermelha enquanto <3 caracteres */
+            validSenha = false
+        }else {
+            labelSenha.setAttribute("style", "color:green")  /* Altera o atributo de cor do Label Nome para verde
+                                                                se for MAIOR que três caracteres */
+            labelSenha.innerHTML ="Senha" /* muda o label Nome */
+            senha.setAttribute ("style", "border-color:green") /* coloca a borda verde se >= 3 caracteres */
+            validSenha = true
+        }
+        })
+
+    /* VALIDAÇÃO DO CAMPO CONFIRNAÇÃO DE SENHA 
+            O objetivo é verificar se as senhas são iguais. O tamanho é irrelevante
+    */
+        
+        confirmarSenha.addEventListener ('keyup', ()=>{   /* Evento em tempo de digitação - Após retirar o dedo do teclado */
+        if(confirmarSenha.value !== senha.value ){     /* Verifica se o nome digitado tem menos de tês caracteres */
+            labelConfirmarSenha.setAttribute("style", "color:red")  /* Altera o atributo de cor do Label Nome para vermelho
+                                                            se for menor que três caracteres */
+            labelConfirmarSenha.innerHTML ="<strong> Senhas não conferem!) </strong>" /* muda o label Nome */
+            confirmarSenha.setAttribute ("style", "border-color:red") /* coloca a borda vermelha enquanto <3 caracteres */
+            validConfirmarSenha = false
+        }else {
+            labelConfirmarSenha.setAttribute("style", "color:green")  /* Altera o atributo de cor do Label Nome para verde
+                                                                se for MAIOR que três caracteres */
+            labelConfirmarSenha.innerHTML ="Confirmar Senha" /* muda o label Nome */
+            confirmarSenha.setAttribute ("style", "border-color:green") /* coloca a borda verde se >= 3 caracteres */
+            validConfirmarSenha = true
+        }
+        })
+
+    /*  Área de Funções e Validação   */
+    
+
+}
+
+    /*Define ação para o Botão Cadastrar deve ser colocada fora da window.onload = function() */
+    function cadastrarUsuario() { /* Função será chamada quando o botão cadastrar for clicado */
+            if (validNome && validUsuario && validSenha && validConfirmarSenha == true){
+                alert ('Pronto para cadastrar')
+            } else {
+                alert ('Campos não Validados!')
+                console.log('O valor validNome é: ' + validNome);
+                console.log('O valor validUsuario é: ' + validUsuario);
+                console.log('O valor validSenha é: ' + validSenha);
+                console.log('O valor validConfirmarSenha é: ' + validConfirmarSenha);
+            }
+        }
+
+

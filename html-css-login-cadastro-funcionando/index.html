@@ -1,0 +1,57 @@
+<!--
+  Recurso: https://youtu.be/VUd2SA9oB2I
+
+
+  
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--<script type="text/javascript" src="js/script.js"></script> <!-- Chamada arquivo javascript-->
+  <link href="css/estilo.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- link para o font awesome para pegar icones -->
+  
+  <title>Aplicação completa com HTML, CSS e JS - Tela de Login</title>
+</head>
+<body>
+
+  <div class= "container"> <!-- define um container para apágina -->
+    <div class= "card"> <!-- insere um car no container -->
+      <h1>Entrar</h1> <!-- título do card -->
+
+      <div class= "label-float"> <!-- cria uma classe label float para o input e o label -->
+          <input type="text" id="usuario" placeholder="" required> <!-- INPUT para o usuário com placeholder vazio - Campo requerido -->
+          <label for="usuario">Usuário</label> <!-- rótulo para o usuário -->
+      </div>
+
+      <div class= "label-float">
+          <input type="password" id="senha" placeholder="" required> <!-- input do tipo password - Campo requerido -->
+          <label for="senha">Senha</label> <!-- rótulo para a senha -->
+          <i class="fa fa-eye" aria-hidden="true"></i> <!-- Coloca o icone do olho. Depende do link no head. Tem que config a classe no css -->
+          <script src="js/eye.js"></script> <!-- Colocado aqui porque se for declarado no head o button retornará null -->
+      </div>
+
+      <div class= "justify-center"> <!-- classe justify-center permitirá alinhar botão centro -->
+        <button>Entrar</button> <!-- Criação do botão com rótulo "ENTRAR" -->        
+      </div>
+
+      <div class="justify-center">
+        <hr> <!-- coloca uma linha separadora -->
+      </div>
+
+      <div >
+        <p>Não tem uma conta? 
+          <a href="cadastro.html">Cadastre-se</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
