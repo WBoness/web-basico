@@ -162,3 +162,23 @@ Recurso: https://youtu.be/VUd2SA9oB2I
     color: #7a33077; /* muda a cor para substituir o text decoration */
     transition: all .4s ease-out;
   }
+
+ /* Configurar a mensagem de erro ou sucesso no cadastramento do usuário
+    chamando pelo id da <div> */
+  #msgError {
+      text-align: center;
+      color: #ff0000;
+      background-color: #ffbbbb;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;  /* para que ele não seja exibido por default*/
+  }
+
+  #msgSucess {
+    text-align: center;
+    color: #00bb00;
+    background-color: #bbffbe;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;  /* para que ele não seja exibido por default*/
+  }

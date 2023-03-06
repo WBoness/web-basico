@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- link para o font awesome para pegar icones -->
   
   <!-- Declaração de scripts  -->
-  <!--<script src="js/eyes.js"></script> -->
+  <!--<script src="js/eyes.js"></script> --> colocado o evento no arquivo de validação dos campos (cadastrarUsuario.js) */
   <script src="js/cadastrarUsuario"></script> <!-- Carrega o javascript do botão Cadastrar -->
   
   <title>Aplicação completa com HTML, CSS e JS - Tela de Cadastro de Usuário</title>
@@ -34,6 +34,14 @@
     <div class= "card2"> <!-- insere um car no container -->
       
       <h1>Cadastrar Usuário</h1> <!-- título do card -->
+
+      <!-- Usada para colocar a mensagem de sucesso ou erro-->
+
+      <div id="msgError"></div>
+      <div id="msgSucess"></div>
+      
+
+      <!-- colocar os campos do Card-->
 
       <div class= "label-float"> <!-- cria uma classe label float para o input e o label -->
         <input type="text" id="nome" placeholder="" required> <!-- INPUT para o nome com placeholder vazio - Campo Obrigatório -->

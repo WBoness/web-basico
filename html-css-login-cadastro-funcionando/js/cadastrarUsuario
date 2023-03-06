@@ -22,9 +22,9 @@ window.onload = function() {  /* Função evita que javascript seja carregado an
     let nome = document.querySelector('#nome') /* Tem que ser o ID do Input, poi o objetivo é validar o input */
     let labelNome = document.querySelector('#labelNome') /* Tem que ser o ID da label, poi o objetivo é validar a label */
     validNome =  false
-    if (validNome == false) {
+    /*if (validNome == false) {
         console.log('O valor validNome é: ' + validNome);
-    }
+    }*/
     let usuario = document.querySelector('#usuario')
     let labelUsuario = document.querySelector('#labelUsuario')
     validUsuario = false 
@@ -36,6 +36,10 @@ window.onload = function() {  /* Função evita que javascript seja carregado an
     let confirmarSenha = document.querySelector('#confirmarsenha')
     let labelConfirmarSenha = document.querySelector('#labelConfirmarSenha')
     validConfirmarSenha = false
+
+    /* Variáveis para mensagem de erro! */
+    msgError = document.querySelector('#msgError')      //recebe o ID da <div> msgError
+    msgSucess = document.querySelector('#msgSucess')    //recebe o ID da <div> msgSucess
 
 
 
@@ -87,14 +91,14 @@ window.onload = function() {  /* Função evita que javascript seja carregado an
                 labelNome.innerHTML ="<strong> Nome (Mínimo com três letras!) </strong>" /* muda o label Nome */
                 nome.setAttribute ("style", "border-color:red") /* coloca a borda vermelha enquanto <3 caracteres */
                 validNome = false
-                console.log('O valor validNome é: ' + validNome);
+                /* console.log('O valor validNome é: ' + validNome);*/
             }else {
                 labelNome.setAttribute("style", "color:green")  /* Altera o atributo de cor do Label Nome para verde
                                                                     se for MAIOR que três caracteres */
                 labelNome.innerHTML ="Nome" /* muda o label Nome */
                 nome.setAttribute ("style", "border-color:green") /* coloca a borda verde se >= 3 caracteres */
                 validNome = true
-                console.log('O valor validNome é: ' + validNome);
+                /*console.log('O valor validNome é: ' + validNome);*/
             }
         })
     
@@ -163,13 +167,50 @@ window.onload = function() {  /* Função evita que javascript seja carregado an
     /*Define ação para o Botão Cadastrar deve ser colocada fora da window.onload = function() */
     function cadastrarUsuario() { /* Função será chamada quando o botão cadastrar for clicado */
             if (validNome && validUsuario && validSenha && validConfirmarSenha == true){
-                alert ('Pronto para cadastrar')
+                //alert ('Pronto para cadastrar')
+                
+                /* cria a variável que receberá uma lista de usuários
+                    utiliza JSON.parse para converter o conteudo no formato JSON
+                    indica que o conteúdo será obtido do localStorage (listaUser)
+                        - Na primeira vez, será uma lista vazia (cria uma vazia)
+                        - se existir, traz o array para a variavel 
+                     */
+                let listaUser = JSON.parse (localStorage.getItem('listaUser') || '[]')
+                /* Estamos trabalhando com uma lista de objetos (no caso usuário, com quatro campos) 
+                    para incrementá-la, tem que dar um push, passando o objeto
+                     */
+                listaUser.push ( //inserir o objeto à variável local ---> tem que salvar depois
+                    {
+                    nomeCadastro: nome.value, //colocar as virgulas
+                    usuarioCadastro: usuario.value, //colocar as virgulas
+                    senhaCadastro: senha.value                    
+                    }
+                )
+
+                localStorage.setItem('listaUser', JSON.stringify(listaUser)) // grava no localStorage
+
+
+                msgError.setAttribute('style', 'display: none')  //oculta a <div> de ERRO
+                msgSucess.setAttribute('style', 'display: block')  // mostra a <div> de Sucesso
+                msgSucess.innerHTML = '<strong> Cadastrado com sucesso </strong>' // coloca o texto de Sucesso
+
+
+                /* Retorna à tela de Login após cadastrado - aguardar 3 segundos */
+                setTimeout (()=>{
+                    window.location.href='index.html'
+                } , 3000)
+               
+            
             } else {
-                alert ('Campos não Validados!')
-                console.log('O valor validNome é: ' + validNome);
+                //alert ('Campos não Validados!')
+                msgSucess.setAttribute('style', 'display: none')    //oculta a <div> de Sucesso
+                msgError.setAttribute('style', 'display: block')    // mostra a <div>  de ERRO
+                msgError.innerHTML = '<strong> Preencha todos os campos corretamente! </strong>' //Exibe a mensagem de erro
+                
+                /*console.log('O valor validNome é: ' + validNome);
                 console.log('O valor validUsuario é: ' + validUsuario);
                 console.log('O valor validSenha é: ' + validSenha);
-                console.log('O valor validConfirmarSenha é: ' + validConfirmarSenha);
+                console.log('O valor validConfirmarSenha é: ' + validConfirmarSenha);*/
             }
         }
 
